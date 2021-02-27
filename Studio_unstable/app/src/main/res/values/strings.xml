@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="title_activity_scrolling">ScrollingActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+
+
+    <string name="title_activity_person">Person</string>
+    <string name="title_activity_shop">Shop</string>
+    <string name="title_activity_room1">ScrollingActivity</string>
+
+</resources>
+

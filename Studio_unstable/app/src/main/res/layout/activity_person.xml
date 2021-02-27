@@ -1,0 +1,30 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/person"
+    android:orientation="vertical">
+
+        <cn.zhaiyifan.rememberedittext.RememberEditText
+            android:id="@+id/name_person"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="150dp"
+            android:hint="Enter you nickname"
+            android:inputType="text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:autoFill="true"
+            app:autoSave="true"
+            app:rememberCount="3"
+            app:rememberId="nickname"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/confirm"
+            android:layout_marginTop="185dp"
+            android:layout_gravity="right"
+            android:text="Подтвердить"/>
+
+</LinearLayout>

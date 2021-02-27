@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "14905227217",
+    "project_id": "test-server-1-9ed0c",
+    "storage_bucket": "test-server-1-9ed0c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:14905227217:android:6f3ded0cd017eb3e0512f0",
+        "android_client_info": {
+          "package_name": "com.ttork.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "14905227217-56gn6u6gvguoejecb47jjh1bdva7nfub.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ttork.myapplication",
+            "certificate_hash": "6501253e0a077b83d59b535d089e128e9a212681"
+          }
+        },
+        {
+          "client_id": "14905227217-5n87em5pcpabpjnq4c6l1s6kuh50o1ob.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB4kYKZ8YK8BTTyGvqTIs6gQR4uOiDej14"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "14905227217-5n87em5pcpabpjnq4c6l1s6kuh50o1ob.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

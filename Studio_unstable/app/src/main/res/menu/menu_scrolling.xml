@@ -1,0 +1,21 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.ttork.igra3.ScrollingActivity">
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="1000"
+        android:title="@string/action_settings"
+        app:showAsAction="never"
+        />
+    <item
+        android:id="@+id/action_person"
+        android:orderInCategory="200"
+        android:title="Person"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/shop"
+        android:orderInCategory="300"
+        android:title="Shop"
+        app:showAsAction="never"/>
+</menu>

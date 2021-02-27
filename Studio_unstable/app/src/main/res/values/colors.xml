@@ -18,4 +18,6 @@
     <color name="grey_300">#E0E0E0</color>
     <color name="grey_500">#9E9E9E</color>
     <color name="user">#50c878</color>
+    <color name="background">#4C4949</color>
+    <color name="user2">#c85064</color>
 </resources>

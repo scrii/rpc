@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 textMessage.setText(model.getTextMessage());
                 autor.setText(model.getAutor());
                 if(nickname == autor.getText().toString())autor.setTextColor(getResources().getColor(R.color.user));
-                else autor.setTextColor(getResources().getColor(R.color.white));
+                else autor.setTextColor(getResources().getColor(R.color.user2));
                 //autor.setText(nickname);
                 //timeMessage.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTimeMessage()));
                 myListView.smoothScrollToPosition(1000000000);

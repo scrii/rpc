@@ -36,7 +36,7 @@
             android:ems="15"
             android:inputType="textPersonName"
             android:layout_gravity="bottom"
-            android:layout_weight="2"/>
+            android:layout_weight="2" />
 
         <Button
             android:text="Send"

@@ -67,6 +67,7 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
             e.printStackTrace();
         }
         if(number == 1)startActivity(new Intent(EmailPasswordActivity.this,ScrollingActivity.class));
+
         //----------------------------------------------------------------------------
         File file60 = new File("/data/data/com.ttork.myapplication/Sign.txt");
         Log.d(file60.exists() + "", "true!");
@@ -85,7 +86,7 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
         }
         //----------------------------------------------------------------------------
 
-        if(number != 1) {
+        //if(number != 1) {
             mAuth = FirebaseAuth.getInstance();
 
             mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -97,7 +98,6 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
                         startActivity(new Intent(EmailPasswordActivity.this, ScrollingActivity.class));
                     } else {
                         // User is signed out
-
                     }
 
                 }
@@ -108,13 +108,14 @@ public class EmailPasswordActivity extends AppCompatActivity implements View.OnC
 
             findViewById(R.id.btn_sign_in).setOnClickListener(this);
             findViewById(R.id.btn_registration).setOnClickListener(this);
-        }
+        //}
     }
     @Override
     public void onClick(View view) {
         if(view.getId() == R.id.btn_sign_in)
         {
             signin(ETemail.getText().toString(),ETpassword.getText().toString());
+            //startActivity(new Intent(EmailPasswordActivity.this, PersonActivity.class));
         }else if (view.getId() == R.id.btn_registration)
         {
             registration(ETemail.getText().toString(),ETpassword.getText().toString());

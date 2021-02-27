@@ -1,5 +1,6 @@
 package Tools;
 
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.teamname.game.Actor.Player;
@@ -18,6 +19,7 @@ public class Joystick {
     Point2D CirclePos;
     Point2D StickPos;
     Point2D direction;
+    Point2D joyDirection=new Point2D(0,0);
 
     // Size общий размер джойстика
     public Joystick(Texture cimg, Texture simg, Point2D point, float Size) {
@@ -35,10 +37,10 @@ public class Joystick {
 
     public void draw(SpriteBatch batch) {
         // реализовать отрисовку джойстика в произвольном месте
-        CirclePos.add(direction.getX()*GameSc.player.Speed,direction.getY()*GameSc.player.Speed);
-        StickPos.add(direction.getX()*GameSc.player.Speed,direction.getY()*GameSc.player.Speed);
-        batch.draw(CircleImg, CirclePos.getX()-Rcircle, CirclePos.getY()-Rcircle, Rcircle * 2, Rcircle * 2);
-        batch.draw(StickImg, StickPos.getX(), StickPos.getY(), Rstick * 2, Rstick * 2);
+        CirclePos.add(GameSc.player.direction.getX(),GameSc.player.direction.getY());
+        StickPos.add(GameSc.player.direction.getX(),GameSc.player.direction.getY());
+        batch.draw(CircleImg, CirclePos.getX()-Rcircle, CirclePos.getY()+Rcircle+Rstick, Rcircle * 2, Rcircle * 2);
+        batch.draw(StickImg, StickBounds.pos.getX()-Rstick, StickBounds.pos.getY()-Rstick, Rstick * 2, Rstick * 2);
     }
 
     public void update(float x, float y, boolean isDownTouch, int pointer) {
@@ -73,6 +75,7 @@ public class Joystick {
         //ошибка division by zero (решено)
         if(dist!=0)direction.setPoint(-(dx / dist), -(dy / dist));
         else{direction.setPoint(0,0);}
+        joyDirection=direction;
 
 
     }
@@ -81,7 +84,7 @@ public class Joystick {
         // возвращает стик к центру
         StickBounds.pos.setPoint(CircleBounds.pos);
         // задать velocity для плавного возвращения
-
+        // когда пользователь отпускает стик, камере не передается информация
         direction.setPoint(0, 0);
 
         pointer = -1;

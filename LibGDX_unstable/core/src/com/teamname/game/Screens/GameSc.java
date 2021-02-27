@@ -111,7 +111,7 @@ public class GameSc implements Screen {
         Main.batch.draw(Main.background,0,0);
         GameRender(Main.batch);
         // сплюсовать радиусы для отображения игрока ровно в центре
-        //camera.position.set(player.send.getX()+player.R,player.send.getY()+player.R,0);
+        camera.position.set(player.send.getX()+player.R,player.send.getY()+player.R,0);
         Main.batch.end();
     }
 
@@ -153,7 +153,7 @@ public class GameSc implements Screen {
 
     public void loadActors(){
         player =new Player(Main.actor,new Point2D(entityX,entityY),10,entityRad,20);
-        joy=new Joystick(Main.circle,Main.actor,new Point2D(joyX,joyY),joySize);
+        joy=new Joystick(Main.circle,Main.stickImg,new Point2D(joyX,joyY),joySize);
     }
 
     public void multitouch(float x,float y,boolean isDownTouch, int pointer){

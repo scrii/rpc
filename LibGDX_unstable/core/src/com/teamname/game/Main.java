@@ -11,7 +11,7 @@ public class Main extends Game {
 	public static SpriteBatch batch;
 	public Texture img;
 	public static int WIDTH,HEIGHT;
-	public static Texture circle,actor,background;
+	public static Texture circle,stickImg,background,actor;
 	public MenuSc menu;
 	
 	@Override
@@ -20,6 +20,7 @@ public class Main extends Game {
 		WIDTH= Gdx.graphics.getWidth();
 		HEIGHT=Gdx.graphics.getHeight();
 		circle=new Texture("circle.png");
+		stickImg=new Texture("stick.png");
 		actor=new Texture("actor.png");
 		background=new Texture("testlocation.png");
 		setScreen(new GameSc(this));

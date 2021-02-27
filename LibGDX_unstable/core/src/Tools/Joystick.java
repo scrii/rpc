@@ -36,7 +36,7 @@ public class Joystick {
 
 
     public void draw(SpriteBatch batch) {
-        // реализовать отрисовку джойстика в произвольном месте
+        // !!! реализовать нормальное следование джойстика за персонажем
         CirclePos.add(GameSc.player.direction.getX(),GameSc.player.direction.getY());
         StickPos.add(GameSc.player.direction.getX(),GameSc.player.direction.getY());
         batch.draw(CircleImg, CirclePos.getX()-Rcircle, CirclePos.getY()+Rcircle+Rstick, Rcircle * 2, Rcircle * 2);

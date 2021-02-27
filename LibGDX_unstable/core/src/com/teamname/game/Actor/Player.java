@@ -23,7 +23,8 @@ public class Player extends Actor {
 
     @Override
     public void draw(SpriteBatch batch) {
-        batch.draw(img, position.getX()-R,position.getY()-R,100,100);
+        // !!! поставить значение ширины и высоты в константы
+        batch.draw(img, position.getX()-R,position.getY()-R,50,50);
     }
 
     @Override

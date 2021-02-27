@@ -20,4 +20,6 @@
     <color name="user">#50c878</color>
     <color name="background">#4C4949</color>
     <color name="user2">#a0c850</color>
+    <color name="user3">#FF000000</color>
+    <color name="user4">#FFFFFFFF</color>
 </resources>

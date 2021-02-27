@@ -23,8 +23,9 @@ import java.io.PrintWriter;
 public class PersonActivity extends AppCompatActivity {
     EditText name_person;
     Button confirm;
+    Button delete_me;
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) { //what
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_person);
         name_person = findViewById(R.id.name_person);

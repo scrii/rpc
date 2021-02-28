@@ -22,4 +22,5 @@
     <color name="user2">#a0c850</color>
     <color name="user3">#FF000000</color>
     <color name="user4">#FFFFFFFF</color>
+    <color name="try_user">#00ADFB</color>
 </resources>

@@ -147,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     if(((int)(Math.random()*6))%2==0){
                         s1 = textMessage.getText().toString();
                        s2 = s1 + " "+ "[True]";
-                        s2 = s2.replace("/try","");
+                        s2 = s2.replace("/try",""); //rh
                         textMessage.setText(s2);
                     }
                     else {

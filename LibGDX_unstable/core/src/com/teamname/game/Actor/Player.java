@@ -23,16 +23,17 @@ public class Player extends Actor {
 
     @Override
     public void draw(SpriteBatch batch) {
-        batch.draw(img, position.getX()-R,position.getY()-R);
+        // !!! поставить значение ширины и высоты в константы
+        batch.draw(img, position.getX()-R,position.getY()-R,50,50);
     }
 
     @Override
     public void update() {
         // не зашел ли игрок за границу
-        /*if(position.getX()+R>= Main.WIDTH)position.setX(Main.WIDTH-R);
+        if(position.getX()+R>= Main.WIDTH)position.setX(Main.WIDTH-R);
         if(position.getX()-R<=0)position.setX(R);
         if(position.getY()+R>=Main.HEIGHT)position.setY(Main.HEIGHT-R);
-        if(position.getY()-R<=0)position.setY(R);*/
+        if(position.getY()-R<=0)position.setY(R);
 
 
         X=direction.getX()*Speed;

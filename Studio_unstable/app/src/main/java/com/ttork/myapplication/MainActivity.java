@@ -161,7 +161,9 @@ public class MainActivity extends AppCompatActivity {
                 View.OnTouchListener votl = new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
-                        x=4;
+                        x++;
+                        Log.d("Касание ", x + "");
+                        if(x%2!=0)myListView.smoothScrollToPosition(2000000000);
                         return false;
                     }
                 };
@@ -172,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
 //                        x++;
 //                    }
 //                });
-                while (true)if(x%2!=0)myListView.smoothScrollToPosition(2000000000);
+
             }
         };
         listMessages.setAdapter(adapter);

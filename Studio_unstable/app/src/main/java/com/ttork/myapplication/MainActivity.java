@@ -16,6 +16,7 @@ import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -101,8 +102,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                myListView.smoothScrollToPosition(2000000000);
-
+                //myListView.smoothScrollToPosition(2000000000);
                 EditText input = (EditText)findViewById(R.id.editText);
                 Log.d("Nickname ", nickname + "");
                 //myListView.smoothScrollToPosition(1000000000);
@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 if(nickname != null)FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), nickname));
                 else FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 input.setText("");
-                myListView.smoothScrollToPosition(2000000000);
+                //myListView.smoothScrollToPosition(2000000000);
             }
         });
         //myListView.smoothScrollToPosition(1000000000);
@@ -158,14 +158,21 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
                 else textMessage.setTextColor(getResources().getColor(R.color.white));
-                imageSwitcher.setOnClickListener(new View.OnClickListener() {
+                View.OnTouchListener votl = new View.OnTouchListener() {
                     @Override
-                    public void onClick(View v) {
-                        imageSwitcher.showNext();
-                        x++;
+                    public boolean onTouch(View v, MotionEvent event) {
+                        x=4;
+                        return false;
                     }
-                });
-                if(x%2!=0)myListView.smoothScrollToPosition(2000000000);
+                };
+//                imageSwitcher.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        imageSwitcher.showNext();
+//                        x++;
+//                    }
+//                });
+                while (true)if(x%2!=0)myListView.smoothScrollToPosition(2000000000);
             }
         };
         listMessages.setAdapter(adapter);

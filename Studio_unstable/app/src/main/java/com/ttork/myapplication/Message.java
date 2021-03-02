@@ -11,7 +11,6 @@ public class Message {
     public Message(String textMessage, String autor) {
         this.textMessage = textMessage;
         this.autor = autor;
-
         timeMessage = new Date().getTime();
     }
 
@@ -22,8 +21,9 @@ public class Message {
         return textMessage;
     }
 
-    public void setTextMessage(String textMessage) {
-        this.textMessage = textMessage;
+    public String setTextMessage() {
+        //this.textMessage = textMessage;
+        return textMessage;
     }
 
     public String getAutor() {
@@ -40,5 +40,8 @@ public class Message {
 
     public void setTimeMessage(long timeMessage) {
         this.timeMessage = timeMessage;
+    }
+    public String trying(){
+        return " [True]";
     }
 }

@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
     String nickname;
     ListView myListView;
     BubbleTextView textMessage;
-    ImageSwitcher imageSwitcher;
-    int x = 1;
-    String s1, s2,s3,s4;
+    String s1,s2;
+    boolean xy = true;
+    int y;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,10 +71,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         myListView = findViewById(R.id.listView);
-        imageSwitcher = findViewById(R.id.down);
         myListView.isFastScrollEnabled();
 
-        //myListView.setFastScrollAlwaysVisible(true);
         //=====================================================================
         String myData36 = "";
         File myExternalFile36 = new File("/data/data/com.ttork.myapplication/nickname.txt");
@@ -98,22 +96,19 @@ public class MainActivity extends AppCompatActivity {
         //=====================================================================
 
         activity_main = findViewById(R.id.activity_main);
-        button = (Button)findViewById(R.id.button2);
+        button = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //myListView.smoothScrollToPosition(2000000000);
                 EditText input = (EditText)findViewById(R.id.editText);
                 Log.d("Nickname ", nickname + "");
-                //myListView.smoothScrollToPosition(1000000000);
                 //FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 if(nickname != null)FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), nickname));
                 else FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 input.setText("");
-                //myListView.smoothScrollToPosition(2000000000);
+                xy = true;
             }
         });
-        //myListView.smoothScrollToPosition(1000000000);
         if (FirebaseAuth.getInstance().getCurrentUser() == null) {
             startActivityForResult(AuthUI.getInstance()
                     .createSignInIntentBuilder()
@@ -133,48 +128,41 @@ public class MainActivity extends AppCompatActivity {
                 TextView autor, timeMessage;
                 textMessage = v.findViewById(R.id.tvMessage);
                 autor = v.findViewById(R.id.tvUser);
+//                String s7 = textMessage.getText().toString();
+//                if(s7.contains("/try"))//&& (!(textMessage.getText().toString().contains("[True]")) || (!(textMessage.getText().toString().contains("[False]")))))
+//                {
+//                    textMessage.setTextColor(getResources().getColor(R.color.try_user));
+//                    if(((int)(Math.random()*6))%2==0){
+//                        s1 = model.getTextMessage();
+//                        s1 = s1 + " [Успешно]";
+////                        textMessage.setText(model.setTextMessage(s1));
+//                        textMessage.setText(model.setTextMessage(s1));
+//
+//                    }
+//                    else {
+//                        //textMessage.setText(model.getTextMessage() + " [Не успешно]");
+//                        s2 = model.getTextMessage();
+//                        s2 = s2 + " [Успешно]";
+//                        textMessage.setText(model.setTextMessage(s2));
+//                    }
+//                }
+//                else {
+//                    textMessage.setTextColor(getResources().getColor(R.color.white));
+//                    y=2;
+//                }
                 //timeMessage = v.findViewById(R.id.tvTime);
+                String s3 = "hahaha";
                 textMessage.setText(model.getTextMessage());
+                //textMessage.setText(s3);
                 autor.setText(model.getAutor());
                 if(nickname == autor.getText().toString())autor.setTextColor(getResources().getColor(R.color.user));
                 else autor.setTextColor(getResources().getColor(R.color.user2));
                 //autor.setText(nickname);
                 //timeMessage.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTimeMessage()));
-                String s7 = textMessage.getText().toString();
-                if(s7.contains("/try"))//&& (!(textMessage.getText().toString().contains("[True]")) || (!(textMessage.getText().toString().contains("[False]")))))
-                {
-                    textMessage.setTextColor(getResources().getColor(R.color.try_user));
-                    if(((int)(Math.random()*6))%2==0){
-                        s1 = textMessage.getText().toString();
-                       s2 = s1 + " "+ "[True]";
-                        s2 = s2.replace("/try",""); //rh
-                        textMessage.setText(s2);
-                    }
-                    else {
-                        s3 = textMessage.getText().toString();
-                        s4 = s3 + " " + "[False]";
-                        s4 = s4.replace("/try","");
-                        textMessage.setText(s4);
-                    }
+                if(xy){
+                    myListView.smoothScrollToPosition(2000000000);
+                    xy = false;
                 }
-                else textMessage.setTextColor(getResources().getColor(R.color.white));
-                View.OnTouchListener votl = new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        x++;
-                        Log.d("Касание ", x + "");
-                        if(x%2!=0)myListView.smoothScrollToPosition(2000000000);
-                        return false;
-                    }
-                };
-//                imageSwitcher.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        imageSwitcher.showNext();
-//                        x++;
-//                    }
-//                });
-
             }
         };
         listMessages.setAdapter(adapter);

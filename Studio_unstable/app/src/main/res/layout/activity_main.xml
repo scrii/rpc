@@ -34,24 +34,7 @@
                     android:id="@+id/aboutroom1"
                     android:text="Room1"
                     android:textSize="20dp"/>
-                <ImageSwitcher
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/down"
-                    android:layout_marginLeft="320dp">
-                    <ImageView
-                        android:id="@+id/imageDown"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/button_down"
-                        />
-                    <ImageView
-                        android:id="@+id/imageDown_press"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/button_down_press"
-                        />
-                </ImageSwitcher>
+
             </androidx.appcompat.widget.Toolbar>
 
 

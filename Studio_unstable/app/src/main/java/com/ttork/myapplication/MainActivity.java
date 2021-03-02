@@ -5,6 +5,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.widget.ListViewAutoScrollHelper;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;

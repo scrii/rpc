@@ -21,7 +21,7 @@ public class Main extends Game {
 		circle=new Texture("circle.png");
 		actor=new Texture("actor.png");
 		background=new Texture("testlocation.png");
-		setScreen(new GameSc(this));
+		setScreen(new MenuSc(this));
 	}
 
 	@Override

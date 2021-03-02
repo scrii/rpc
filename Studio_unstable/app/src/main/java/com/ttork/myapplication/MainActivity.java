@@ -61,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
     String nickname;
     ListView myListView;
     BubbleTextView textMessage;
-    String s1,s2;
+    String pred_message = "";
+    String tek_message = "";
     boolean xy = true;
     int y;
 
@@ -100,11 +101,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                EditText input = (EditText)findViewById(R.id.editText);
+                EditText input = findViewById(R.id.editText);
                 Log.d("Nickname ", nickname + "");
                 //FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 if(nickname != null)FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), nickname));
                 else FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
+                //if(input.toString() != null)xy = true;
                 input.setText("");
                 xy = true;
             }
@@ -151,11 +153,12 @@ public class MainActivity extends AppCompatActivity {
 //                    y=2;
 //                }
                 //timeMessage = v.findViewById(R.id.tvTime);
-                String s3 = "hahaha";
                 textMessage.setText(model.getTextMessage());
-                //textMessage.setText(s3);
                 autor.setText(model.getAutor());
-                if(nickname == autor.getText().toString())autor.setTextColor(getResources().getColor(R.color.user));
+                if(nickname == autor.getText().toString()){
+                    autor.setTextColor(getResources().getColor(R.color.user));
+                    myListView.smoothScrollToPosition(2000000000);
+                }
                 else autor.setTextColor(getResources().getColor(R.color.user2));
                 //autor.setText(nickname);
                 //timeMessage.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTimeMessage()));

@@ -21,7 +21,7 @@ public class Message {
         return textMessage;
     }
 
-    public String setTextMessage() {
+    public String setTextMessage(String s) {
         //this.textMessage = textMessage;
         return textMessage;
     }

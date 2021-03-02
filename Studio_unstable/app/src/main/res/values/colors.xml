@@ -23,4 +23,5 @@
     <color name="user3">#FF000000</color>
     <color name="user4">#FFFFFFFF</color>
     <color name="try_user">#00ADFB</color>
+    <color name="comment">#e66000</color>
 </resources>

@@ -45,8 +45,10 @@ import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -61,11 +63,8 @@ public class MainActivity extends AppCompatActivity {
     String nickname;
     ListView myListView;
     BubbleTextView textMessage;
-    String pred_message = "";
-    String tek_message = "";
     boolean xy = true;
-    int y;
-
+    String s;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         myListView = findViewById(R.id.listView);
         myListView.isFastScrollEnabled();
-
         //=====================================================================
         String myData36 = "";
         File myExternalFile36 = new File("/data/data/com.ttork.myapplication/nickname.txt");
@@ -96,17 +94,15 @@ public class MainActivity extends AppCompatActivity {
         }
         //=====================================================================
 
+
         activity_main = findViewById(R.id.activity_main);
         button = findViewById(R.id.button2);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 EditText input = findViewById(R.id.editText);
-                Log.d("Nickname ", nickname + "");
-                //FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
                 if(nickname != null)FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), nickname));
                 else FirebaseDatabase.getInstance().getReference().push().setValue(new Message(input.getText().toString(), FirebaseAuth.getInstance().getCurrentUser().getEmail()));
-                //if(input.toString() != null)xy = true;
                 input.setText("");
                 xy = true;
             }
@@ -160,7 +156,27 @@ public class MainActivity extends AppCompatActivity {
                     myListView.smoothScrollToPosition(2000000000);
                 }
                 else autor.setTextColor(getResources().getColor(R.color.user2));
-                //autor.setText(nickname);
+                //if(s.contains("*") && s.contains("*"))textMessage.setTextColor(getResources().getColor(R.color.comment));
+                int kolvo_symbols = 0;
+                s = textMessage.getText().toString();
+                //==========================================================================================================
+
+
+
+                if(s.contains("!") && textMessage.getText().toString().contains("!")) {
+                    for (int i = 0; i < s.length(); i++) {
+                        if (s.charAt(i) == '!' && s.contains("!")) {
+                            kolvo_symbols++;
+                            if (kolvo_symbols == 2 && s.contains("!")) {
+                                textMessage.setTextColor(getResources().getColor(R.color.comment));
+                                kolvo_symbols = 0;
+                                s = "";
+                            }
+                            else textMessage.setTextColor(getResources().getColor(R.color.white));
+                        }
+                    }
+                }
+                //else textMessage.setTextColor(getResources().getColor(R.color.white));
                 //timeMessage.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTimeMessage()));
                 if(xy){
                     myListView.smoothScrollToPosition(2000000000);

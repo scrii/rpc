@@ -10,6 +10,13 @@ public abstract class GraphicsObj {
     }
 
     public Texture img;
+    public Texture pressed;
+    public Texture unpressed;
+
+    public GraphicsObj(Texture unpressed, Texture pressed) {
+        this.unpressed = unpressed;
+        this.pressed = pressed;
+    }
 
     public abstract void draw(SpriteBatch batch); //Рисовка
     public abstract void update(); //обновление отрисовки

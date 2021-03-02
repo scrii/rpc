@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.teamname.game.GraphicsObj.GraphicsObj;
+import com.teamname.game.Main;
 
 public class Buttons {
     Texture unPressed;
@@ -29,6 +30,9 @@ public class Buttons {
     }
 
     public boolean isButtonTouch(float clickX, float clickY){
+        // нужно инвертировать координаты
+        // Main.HEIGHT-startY
+
         return clickX>startX&&clickX<endX&&clickY>startY&&clickY<endY;
     }
 

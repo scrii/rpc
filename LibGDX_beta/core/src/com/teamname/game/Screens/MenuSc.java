@@ -52,8 +52,8 @@ public class MenuSc implements Screen {
     public void render(float delta) {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         Main.batch.begin();
-        reg_button.draw(Main.batch,Gdx.input.getX(),Gdx.input.getY());
-        auth_button.draw(Main.batch,Gdx.input.getX(),Gdx.input.getY());
+        reg_button.draw(Main.batch,Gdx.input.getX(),Main.HEIGHT-Gdx.input.getY());
+        auth_button.draw(Main.batch,Gdx.input.getX(),Main.HEIGHT-Gdx.input.getY());
         Main.batch.end();
     }
 

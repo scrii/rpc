@@ -1,59 +1,29 @@
 package com.ttork.myapplication;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.widget.ListViewAutoScrollHelper;
-
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.CountDownTimer;
-import android.os.Handler;
-import android.text.format.DateFormat;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageSwitcher;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
-import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.load.engine.Resource;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.database.FirebaseListAdapter;
 import com.github.library.bubbleview.BubbleTextView;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firestore.v1.Cursor;
 
 import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.Random;
-
-import cn.zhaiyifan.rememberedittext.RememberEditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -65,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     ListView myListView;
     BubbleTextView textMessage;
     boolean xy = true;
-    String s;
+    String s, shadow_nickname_user,coordinats_x = "1.000",coordinats_y = "1.000";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,11 +85,16 @@ public class MainActivity extends AppCompatActivity {
         } else {
             displayChat();
         }
+        //Теневая отправка сообщений с координатами x и y на сервер
+        shadow_nickname_user = nickname + "-RxvtHg7uyprotL1";
+        Log.d("Shadow",shadow_nickname_user);
+
+        //Теневая отправка сообщений с координатами x и y на сервер
     }
 
     private void displayChat() {
 
-        ListView listMessages = (ListView)findViewById(R.id.listView);
+        ListView listMessages = findViewById(R.id.listView);
         adapter = new FirebaseListAdapter<Message>(this, Message.class, R.layout.list_item, FirebaseDatabase.getInstance().getReference()) {
 
             @Override
@@ -127,6 +102,9 @@ public class MainActivity extends AppCompatActivity {
                 TextView autor, timeMessage;
                 textMessage = v.findViewById(R.id.tvMessage);
                 autor = v.findViewById(R.id.tvUser);
+                if(nickname != autor.getText().toString()) {//Получаем все ники кроме своих
+
+                }
 //                String s7 = textMessage.getText().toString();
 //                if(s7.contains("/try"))//&& (!(textMessage.getText().toString().contains("[True]")) || (!(textMessage.getText().toString().contains("[False]")))))
 //                {
@@ -164,20 +142,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-                if(s.contains("!") && textMessage.getText().toString().contains("!")) {
+                if(s.contains("*") && textMessage.getText().toString().contains("*")) {
                     for (int i = 0; i < s.length(); i++) {
-                        if (s.charAt(i) == '!' && s.contains("!")) {
+                        if (s.charAt(i) == '*' && s.contains("*")) {
                             kolvo_symbols++;
-                            if (kolvo_symbols == 2 && s.contains("!")) {
+                            if (kolvo_symbols == 2 && s.contains("*")) {
                                 textMessage.setTextColor(getResources().getColor(R.color.comment));
                                 kolvo_symbols = 0;
+                                //s.replaceAll(s,"*");
                                 s = "";
                             }
                             else textMessage.setTextColor(getResources().getColor(R.color.white));
                         }
                     }
                 }
-                //else textMessage.setTextColor(getResources().getColor(R.color.white));
+                else textMessage.setTextColor(getResources().getColor(R.color.white));
                 //timeMessage.setText(DateFormat.format("dd-MM-yyyy (HH:mm:ss)", model.getTimeMessage()));
                 if(xy){
                     myListView.smoothScrollToPosition(2000000000);

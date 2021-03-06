@@ -16,6 +16,7 @@ import com.firebase.ui.database.FirebaseListAdapter;
 import com.github.library.bubbleview.BubbleTextView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.io.BufferedReader;
@@ -36,9 +37,12 @@ public class MainActivity extends AppCompatActivity {
     BubbleTextView textMessage;
     boolean xy = true;
     String s, shadow_nickname_user,coordinats_x = "1.000",coordinats_y = "1.000";
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         myListView = findViewById(R.id.listView);
@@ -89,8 +93,10 @@ public class MainActivity extends AppCompatActivity {
         shadow_nickname_user = nickname + "-RxvtHg7uyprotL1";
         Log.d("Shadow",shadow_nickname_user);
 
+
         //Теневая отправка сообщений с координатами x и y на сервер
     }
+
 
     private void displayChat() {
 
@@ -102,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 TextView autor, timeMessage;
                 textMessage = v.findViewById(R.id.tvMessage);
                 autor = v.findViewById(R.id.tvUser);
+
                 if(nickname != autor.getText().toString()) {//Получаем все ники кроме своих
 
                 }
@@ -128,6 +135,9 @@ public class MainActivity extends AppCompatActivity {
 //                    y=2;
 //                }
                 //timeMessage = v.findViewById(R.id.tvTime);
+                //shadow.setText(model.setAutor(shadow_nickname_user));
+                //coordinats.setText(model.setTxt(coordinats_x + " " + coordinats_y));
+
                 textMessage.setText(model.getTextMessage());
                 autor.setText(model.getAutor());
                 if(nickname == autor.getText().toString()){

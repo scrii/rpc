@@ -49,6 +49,7 @@
         android:dividerHeight="1dp"
         android:fastScrollEnabled="true"
         android:overScrollMode="never"/>
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

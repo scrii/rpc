@@ -21,10 +21,11 @@ public class Message {
         return textMessage;
     }
 
-    public String setTextMessage(String s) {
-        //this.textMessage = textMessage;
-        return textMessage;
+    public void setTextMessage(String textMessage) {
+        this.textMessage = textMessage;
+        //return textMessage;
     }
+
 
     public String getAutor() {
         return autor;
@@ -40,8 +41,5 @@ public class Message {
 
     public void setTimeMessage(long timeMessage) {
         this.timeMessage = timeMessage;
-    }
-    public String trying(){
-        return " [True]";
     }
 }

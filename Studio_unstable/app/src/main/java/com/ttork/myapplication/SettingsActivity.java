@@ -2,10 +2,13 @@ package com.ttork.myapplication;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.LayerDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.style.BackgroundColorSpan;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,11 +20,15 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 
+
+import com.squareup.picasso.Picasso;
+
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class SettingsActivity extends AppCompatActivity {
     Switch theme1;
-    Bitmap bitmap;
+    Bitmap bitmap,bitmap1;
     static final int GALLERY_REQUEST = 1;
     ImageView imageView;
     Intent imageReturnedIntent;
@@ -36,8 +43,10 @@ public class SettingsActivity extends AppCompatActivity {
             case GALLERY_REQUEST:
                 if(resultCode == RESULT_OK){
                     Uri selectedImage = imageReturnedIntent.getData();
+                    Log.d("Uri",selectedImage.toString());
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
+
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -51,13 +60,13 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView(R.layout.settings_activity);
         theme1 = findViewById(R.id.theme1);
         imageView = findViewById(R.id.imageView);
-//        Uri selectedImage = imageReturnedIntent.getData();
-//        try {
-//            bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImage);
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        imageView.setImageBitmap(bitmap);
+        try {
+            Uri selectedImage = imageReturnedIntent.getData();
+            imageView.setImageURI(selectedImage);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
         Button button = findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override

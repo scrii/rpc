@@ -11,7 +11,7 @@ public class Creation_of_a_work extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.creation_of_a_work_activity);
-        getSupportActionBar().hide();
+        getSupportActionBar().hide(); //f
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

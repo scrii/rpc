@@ -3,7 +3,7 @@
     package="com.ttork.myapplication">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -12,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
+        <activity android:name=".Creation_of_a_work"></activity>
         <activity
             android:name=".ScrollingActivity"
-            android:label="@string/title_activity_scrolling"
+            android:label="RPC"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.MyApplication.NoActionBar">
             <intent-filter>

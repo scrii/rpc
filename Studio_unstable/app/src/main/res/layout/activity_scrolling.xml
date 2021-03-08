@@ -30,13 +30,20 @@
                 android:layout_height="69dp"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/Theme.MyApplication.PopupOverlay" />
-
-
-
+            <com.github.library.bubbleview.BubbleTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/create"
+                android:layout_gravity="right"
+                android:text="Создание новой комнаты"
+                android:textColor="@color/black"
+                />
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <include layout="@layout/content_scrolling" />
+
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

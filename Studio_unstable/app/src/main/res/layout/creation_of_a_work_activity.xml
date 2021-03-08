@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    tools:context=".Creation_of_a_work"
+    app:layout_scrollFlags="scroll|exitUntilCollapsed">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/UsersImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|top"
+        android:layout_marginTop="10dp"
+        android:text="Добавить картинку"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageIcon"/>
+    <cn.zhaiyifan.rememberedittext.RememberEditText
+        android:id="@+id/description"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="150dp"
+        android:hint="Кратко опишите своё произведение"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:autoFill="true"
+        app:autoSave="true"
+        app:rememberCount="4"
+        app:rememberId="description"/>
+    <cn.zhaiyifan.rememberedittext.RememberEditText
+        android:id="@+id/text"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="90dp"
+        android:hint="Напишите своё произведение"
+        android:inputType="textMultiLine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:autoFill="true"
+        app:autoSave="true"
+        app:rememberCount="5"
+        app:rememberId="creation"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <cn.zhaiyifan.rememberedittext.RememberEditText
+            android:id="@+id/writer_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:layout_marginRight="16dp"
+            android:hint="Псевдоним"
+            android:inputType="text"
+            app:autoFill="true"
+            app:autoSave="true"
+            app:rememberCount="6"
+            app:rememberId="pseudonym" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/about_pseudonym"
+        android:text="По умолчанию стоит ваш ник в игре"/>
+    </LinearLayout>
+
+        <Button
+            android:id="@+id/to_publish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginBottom="8.7135dp"
+            android:text="Опубликовать"
+            android:textSize="12dp"/>
+    </LinearLayout>
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

@@ -22,4 +22,7 @@
     <color name="user2">#a0c850</color>
     <color name="user3">#FF000000</color>
     <color name="user4">#FFFFFFFF</color>
+    <color name="try_user">#00ADFB</color>
+    <color name="comment">#e66000</color>
+    <color name="background_primary">#5f6a7d</color>
 </resources>

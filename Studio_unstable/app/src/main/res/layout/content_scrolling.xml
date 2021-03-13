@@ -18,12 +18,12 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:id="@+id/room_one_button"
-            android:text="Название комнаты"/>
+            android:text="Комната для общения"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/room_one_textview"
-            android:text="Example.bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla bla-bla-bla "/>
+            android:text="В данной комнате вы сможете в реальном времени общаться между собой, устраивать бои и отыгравать кого угодно. Всё ограничивается лишь вашим воображением!"/>
     </LinearLayout>
 
 

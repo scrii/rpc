@@ -4,12 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Switch
-        android:id="@+id/theme1"
+
+    <Spinner
+        android:id="@+id/spinner2"
         android:layout_width="match_parent"
-        android:layout_height="74dp"
-        android:text="Темная тема"
-        android:textSize="25dp" />
+        android:layout_height="60dp"
+        android:entries="@array/background_s" />
 
     <Button
         android:id="@+id/button"

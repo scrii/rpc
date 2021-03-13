@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 
-import com.firebase.ui.auth.AuthUI;
-import com.firebase.ui.database.FirebaseListAdapter;
 
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -271,7 +269,7 @@ public class ScrollingActivity extends AppCompatActivity{
             }
         });
         Button creation;
-        creation = findViewById(R.id.create);
+        creation = findViewById(R.id.create1);
         creation.setBackgroundColor(getResources().getColor(background_primary));
         creation.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -50,8 +50,6 @@ import java.io.PrintWriter;
 
 import cn.zhaiyifan.rememberedittext.RememberEditText;
 
-import static com.ttork.myapplication.R.color.background_primary;
-
 public class ScrollingActivity extends AppCompatActivity{
 
     public int file_change_checking_system_experience = 1;
@@ -64,12 +62,12 @@ public class ScrollingActivity extends AppCompatActivity{
     int level;
     int real_level;
     int mathematical_sequence_xp_to_level;
+    int pokazatel;
     CountDownTimer countDownTimer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-
         //==================================
         String myData9 = "";
         File myExternalFile9 = new File("/data/data/com.ttork.myapplication/Sign.txt");
@@ -268,16 +266,6 @@ public class ScrollingActivity extends AppCompatActivity{
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ScrollingActivity.this,MainActivity.class));
-            }
-        });
-        Button creation;
-        creation = findViewById(R.id.create);
-        creation.setBackgroundColor(getResources().getColor(background_primary));
-        creation.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(real_money >= 100)startActivity(new Intent(ScrollingActivity.this,Creation_of_a_work.class));
-                else Toast.makeText(getApplicationContext(),"Для создание собственного произведения требуется от 100 монет",Toast.LENGTH_LONG).show();
             }
         });
     }

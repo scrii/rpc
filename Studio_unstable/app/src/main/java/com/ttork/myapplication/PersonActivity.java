@@ -77,10 +77,12 @@ public class PersonActivity extends AppCompatActivity {
                     .replace(R.id.person, new SettingsFragment())
                     .commit();
         }
+        else Toast.makeText(getApplicationContext(),"Error 1: PersonActivity",Toast.LENGTH_LONG).show();
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
+        else Toast.makeText(getApplicationContext(),"Error 2: PersonActivity",Toast.LENGTH_LONG).show();
     }
 
     public static class SettingsFragment extends PreferenceFragmentCompat {
@@ -100,4 +102,11 @@ public class PersonActivity extends AppCompatActivity {
         }
     }
     //Не трогать код выше
+
+
+
+
+
+
+
 }

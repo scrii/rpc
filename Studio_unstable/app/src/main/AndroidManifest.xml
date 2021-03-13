@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ttork.myapplication">
-
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    package="com.ttork.myapplication" >
 
     <application
         android:allowBackup="true"
@@ -11,13 +8,12 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MyApplication">
-        <activity android:name=".Creation_of_a_work"></activity>
+        android:theme="@style/Theme.MyApplication" >
         <activity
             android:name=".ScrollingActivity"
-            android:label="RPC"
+            android:label="@string/title_activity_scrolling"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.MyApplication.NoActionBar">
+            android:theme="@style/Theme.MyApplication.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

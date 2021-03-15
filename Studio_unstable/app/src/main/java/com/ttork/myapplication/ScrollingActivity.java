@@ -1,6 +1,8 @@
 package com.ttork.myapplication;
 
+import android.content.ComponentName;
 import android.content.Intent;
+import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
 
@@ -79,7 +81,7 @@ public class ScrollingActivity extends AppCompatActivity{
             String strLine9;
             while ((strLine9 = br9.readLine()) != null) {
                 myData9 = myData9 + strLine9;
-                Log.d("File? ",myData9);
+                //Log.d("File? ",myData9);
                 real_sign = Integer.parseInt(myData9);
             }
             br9.close();
@@ -115,7 +117,7 @@ public class ScrollingActivity extends AppCompatActivity{
             String strLine1;
             while ((strLine1 = br1.readLine()) != null) {
                 myData1 = myData1 + strLine1;
-                Log.d("File? ",myData1);
+                //Log.d("File? ",myData1);
                 real_money = Integer.parseInt(myData1);
             }
             br1.close();
@@ -137,7 +139,7 @@ public class ScrollingActivity extends AppCompatActivity{
             String strLine;
             while ((strLine = br.readLine()) != null) {
                 myData = myData + strLine;
-                Log.d("File? ",myData);
+                //Log.d("File? ",myData);
                 real_xp = Integer.parseInt(myData);
             }
             br.close();
@@ -158,7 +160,7 @@ public class ScrollingActivity extends AppCompatActivity{
             String strLine6;
             while ((strLine6 = br6.readLine()) != null) {
                 myData6 = myData6 + strLine6;
-                Log.d("File? ",myData6);
+                //Log.d("File? ",myData6);
                 real_level = Integer.parseInt(myData6);
             }
             br6.close();
@@ -178,7 +180,7 @@ public class ScrollingActivity extends AppCompatActivity{
             countDownTimer = new CountDownTimer(seconds * 1000, 1000) {
                 @Override
                 public void onTick(long millisUntilFinished) {
-                    Log.d("seconds: ", seconds + "");
+                    //Log.d("seconds: ", seconds + "");
                     seconds--;
                     info_money.setText(money + "");
                     info_level.setText(level+"");
@@ -186,7 +188,7 @@ public class ScrollingActivity extends AppCompatActivity{
 
                 @Override
                 public void onFinish() {
-                    Log.d("Status: ", "Finished!!!");
+                    //Log.d("Status: ", "Finished!!!");
                     experience = experience + 1;
                     money = money + 1;
                     info_money.setText(money + "");
@@ -274,8 +276,10 @@ public class ScrollingActivity extends AppCompatActivity{
         creation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(real_money >= 100)startActivity(new Intent(ScrollingActivity.this,Creation_of_a_work.class));
-                else Toast.makeText(getApplicationContext(),"Для создание собственного произведения требуется от 100 монет",Toast.LENGTH_LONG).show();
+                Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.ttork.test");
+                startActivity(LaunchIntent);
+//                if(real_money >= 100)startActivity(new Intent(ScrollingActivity.this,Creation_of_a_work.class));
+//                else Toast.makeText(getApplicationContext(),"Для создание собственного произведения требуется от 100 монет",Toast.LENGTH_LONG).show();
             }
         });
     }

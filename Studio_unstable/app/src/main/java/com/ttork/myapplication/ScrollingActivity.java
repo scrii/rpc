@@ -1,7 +1,10 @@
 package com.ttork.myapplication;
 
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -64,7 +67,23 @@ public class ScrollingActivity extends AppCompatActivity{
     int level;
     int real_level;
     int mathematical_sequence_xp_to_level;
+    int h=0;
     CountDownTimer countDownTimer;
+    public static boolean openApp(Context context, String packageName) {
+        PackageManager manager = context.getPackageManager();
+        try {
+            Intent i = manager.getLaunchIntentForPackage(packageName);
+            if (i == null) {
+                return false;
+                //throw new ActivityNotFoundException();
+            }
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            context.startActivity(i);
+            return true;
+        } catch (ActivityNotFoundException e) {
+            return false;
+        }
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -270,18 +289,21 @@ public class ScrollingActivity extends AppCompatActivity{
                 startActivity(new Intent(ScrollingActivity.this,MainActivity.class));
             }
         });
+
         Button creation;
         creation = findViewById(R.id.create1);
         creation.setBackgroundColor(getResources().getColor(background_primary));
         creation.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent LaunchIntent = getPackageManager().getLaunchIntentForPackage("com.ttork.test");
-                startActivity(LaunchIntent);
+//                PackageManager pm = getPackageManager();
+//                Intent intent = pm.getLaunchIntentForPackage("com.ttork.test");
+//                startActivity(intent);
 //                if(real_money >= 100)startActivity(new Intent(ScrollingActivity.this,Creation_of_a_work.class));
 //                else Toast.makeText(getApplicationContext(),"Для создание собственного произведения требуется от 100 монет",Toast.LENGTH_LONG).show();
             }
         });
+        //if(h==1)openApp(this, "com.avito.android");
     }
 
     @Override
